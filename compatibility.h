@@ -1,7 +1,6 @@
 #ifndef COMPATIBILITY_H
 #define COMPATIBILITY_H
 #include "match.h"
-#include "animalheaders.h"
 #include "linkedlist.h"
 #include <vector>
 using namespace std;

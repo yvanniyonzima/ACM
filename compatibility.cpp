@@ -4,16 +4,12 @@
 #include <cstdlib>
 using namespace std;
 
-Compatibility::Compatibility()
-{
-
-}
 
 float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client clientCalc){
     float physMatchLevel = 0;
     int animalRank = clientCalc.getAnimalRank(animalCalc.getSpecies());
     if(animalRank < 6){
-        if(animalCalc.getSpecies() == ("Cat" || "Dog")){
+        if(animalCalc.getSpecies() == "Cat" || animalCalc.getSpecies() == "Dog"){
             if(animalCalc.getMammalHairColour() == clientCalc.ranks.get(animalRank)->getMammalHairColour()){
                 physMatchLevel++;
             }
@@ -24,7 +20,7 @@ float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client cli
                 physMatchLevel++;
             }
         }
-        else if(animalCalc.getSpecies() == ("Snake" || "Lizard")){
+        else if(animalCalc.getSpecies() == "Snake" || animalCalc.getSpecies() == "Lizard"){
             if(animalCalc.getBodyPattern() == clientCalc.ranks.get(animalRank)->getBodyPattern()){
                 physMatchLevel++;
             }
@@ -36,7 +32,7 @@ float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client cli
             }
         }
 
-        else if(animalCalc.getSpecies() == ("Frog" || "Salamander")){
+        else if(animalCalc.getSpecies() == "Frog" || animalCalc.getSpecies() == "Salamander"){
             if(animalCalc.getBodyPattern() == clientCalc.ranks.get(animalRank)->getBodyPattern()){
                 physMatchLevel++;
             }
@@ -47,7 +43,7 @@ float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client cli
                 physMatchLevel++;
             }
         }
-        else if(animalCalc.getSpecies() == ("Parrot" || "Finch")){
+        else if(animalCalc.getSpecies() == "Parrot" || animalCalc.getSpecies() == "Finch"){
             if(animalCalc.getWingSpan() == clientCalc.ranks.get(animalRank)->getWingSpan()){
                 physMatchLevel++;
             }
@@ -58,7 +54,7 @@ float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client cli
                 physMatchLevel++;
             }
         }
-        else if(animalCalc.getSpecies() == ("Betta" || "Goldfish")){
+        else if(animalCalc.getSpecies() == "Betta" || animalCalc.getSpecies() == "Goldfish"){
             if(animalCalc.getFinnsSize() == clientCalc.ranks.get(animalRank)->getFinnsSize()){
                 physMatchLevel++;
             }
@@ -73,13 +69,13 @@ float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client cli
      }
     else{
         printf("This animal is not in the top 5 ranking of the client");
-        return NULL;
+        return 0;
     }
 
     return physMatchLevel;
 }
 float Compatibility:: computeNonPhysicalCompatibility(Animal animalCalc, Client clientCalc){
-  float physicalCompatibility = 5 - abs(stoi(animalCalc.getIndividualism().substr(0,1)) - stoi(clientCalc.getClientIndividualismPreference().substr(0,1)))
+    float physicalCompatibility = 5 - abs(stoi(animalCalc.getIndividualism().substr(0,1)) - stoi(clientCalc.getClientIndividualismPreference().substr(0,1)))
                             + 5 - abs(stoi(animalCalc.getAffectionism().substr(0,1)) - stoi(clientCalc.getClientAffectionism().substr(0,1)))
                             + 5 - abs(stoi(animalCalc.getIntelligence().substr(0,1)) - stoi(clientCalc.getClientIntelligencePreference().substr(0,1)))
                             + 5 - abs(stoi(animalCalc.getDiscipline().substr(0,1)) - stoi(clientCalc.getClientDisciplinePreference().substr(0,1)))
@@ -100,25 +96,27 @@ vector<vector<Match>> Compatibility:: computeAllMatchCompatibility(LinkedList<An
     float nonPhysMatchAvg;
 
     for(int i = 0; i < allAnimals.size(); i++){
-        for(int y = 0; y < allClients; y++){
-            nonPhysMatchlvl = computeNonPhysicalCompatibility(allAnimals.get(i), allClients.get(y));
+        for(int y = 0; y < allClients.size(); y++){
+            nonPhysMatchlvl = computeNonPhysicalCompatibility(*allAnimals.get(i), *allClients.get(y));
             nonPhysMatchAvg = nonPhysMatchlvl / 12;
             if(nonPhysMatchAvg >= 3){
                 //convert i and y to strings
-                //concatenaate the strings
+                //concatenate the strings
                 //convert the concatenated string to an int
-                string animalID = itos(i);
-                string clientId = itos(y);
+                string animalID = to_string(i);
+                string clientID = to_string(y);
                 string matchID = animalID + clientID;
-                Match newMatch(allAnimals.get(i), allClients.get(y), stoi(matchID));
+                Match newMatch(allClients.get(y), allAnimals.get(i), stoi(matchID));
                 newMatch.setNonPhysicalTotalAndAverage(nonPhysMatchlvl);
                 //ask yvan about how to set physical total
-                newMatch.setPhysicalTotalAndAverage(computePhysicalCompatibility(allAnimals.get(i), allClients.get(y)));
+                newMatch.setPhysicalTotalAndAverage(computePhysicalCompatibility(*allAnimals.get(i), *allClients.get(y)));
                 newMatch.setMatchTotalAndAverage(); //Ask YVAN ABOUT THIS PROBLEM
-               compatibleMatches[i].push_back(newMatch);
+                compatibleMatches[i].push_back(newMatch);
             }
             else{
-                compatibleMatches[i].push_back(NULL);
+                Match dummyMatch(NULL, NULL, 0);
+
+                compatibleMatches[i].push_back(dummyMatch);
             }
 
         }
