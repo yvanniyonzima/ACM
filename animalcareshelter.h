@@ -14,12 +14,16 @@ class AnimalCareShelter : public StorageCenter{
 
 
         void makeNewAnimal(vector<string>);
+        int getPreviousIDForAnimal();
+        int getPreviousIDClient();
+        void setPreviousIDForAnimal(int newID);
+        void setPreviousIDClient(int newID);
 
 
 
     private:
-
-
+        static int previousIDForAnimal;
+        static int previousIDForClient;
 
 
 };

@@ -4,7 +4,10 @@
 #include <cstdlib>
 using namespace std;
 
+Compatibility::Compatibility(){
 
+
+}
 float Compatibility:: computePhysicalCompatibility(Animal animalCalc ,Client clientCalc){
     float physMatchLevel = 0;
     int animalRank = clientCalc.getAnimalRank(animalCalc.getSpecies());

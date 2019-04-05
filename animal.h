@@ -120,7 +120,7 @@ class Animal{
 
     void setEdited(bool);
     void setAnimalId(int);
-    void incramentID();
+    void incramentID(int previousID);
 
     int getAnimalID();
 
@@ -173,7 +173,7 @@ class Animal{
     string appetite;
     string habitatPref;
 
-    static int ID;
+    int ID1;
     bool edited;
     bool isNewAnimal;
 

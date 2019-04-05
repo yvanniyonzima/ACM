@@ -68,7 +68,7 @@ class Client{
 
         void setEdited(bool);
 
-        void incramentID();
+        void incramentID(int oldID);
 
         /*getter for client contatc info*/
         string getEmail();
@@ -142,7 +142,13 @@ class Client{
         //intergers from 0 to n
 
         bool edited;
-        static int ID;
+        int ID;
+
+
+
+        //for testing purposes
+        void populateRanks();
+
 };
 
 #endif

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "client.h"
 #include <string>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 Client::Client(string clientFirstName, string clientLastName,string clientAge,string clientEmail, string clientPhoneNumber,string clientGender){
@@ -12,6 +14,8 @@ Client::Client(string clientFirstName, string clientLastName,string clientAge,st
     gender = clientGender;
     edited = false;
     isNewClient = false;
+    ID = 1;
+
 }
 
 void Client::setClientId(int id){
@@ -166,14 +170,14 @@ void Client::print(){
     cout<< "CLient with ID: "<<ID<<endl;
     cout<<"\tPERSONAL INFO"<<endl;
     cout<<"\t============"<<endl;
-    cout<<"\tFull Name: "<<firstName<<" "<<lastName<<"\tGender: "<<gender<<"\tNew client: "<<this->isNewClient<<"\tEdited: "<<edited<<endl;
+    cout<<"\tFull Name: "<<firstName<<" "<<lastName<<"\tGender: "<<gender<<"\tNew client: "<<isNewClient<<"\tEdited: "<<edited<<endl;
     cout<< "\t\nCONTACT INFO"<<endl;
     cout<<"\t============"<<endl;
     cout<<"\tEmail: "<<email<<"\tPhoneNumber: "<<phoneNumber<<endl;
 
     cout<<"\n\tCHARACTER TRAITS"<<endl;
     cout<<"\t============================================================================"<<endl;
-    cout<<"\tDiurnal-Nocturnal: "<<diurnalNocturnal<<"\tHabitat Preference: "<<habitatPreference<<endl;
+    cout<<"\tDiurnal-Noctural: "<<diurnalNocturnal<<"\tHabitat Preference: "<<habitatPreference<<endl;
     cout<<"\tAffectionism: "<<affectionism<<"\tActiveness: "<<activeness<<endl;
 
     cout<<"\n\tNON-PHYSICAL ATTRIBUTES PREFERENCES"<<endl;
@@ -185,12 +189,51 @@ void Client::print(){
 
 }
 
-int Client::ID=0;
+
 
 bool Client::getEdited(){return edited;}
 void Client::setEdited(bool state){edited = state;}
 
 
-void Client::incramentID(){
-    ID++;
+void Client::incramentID(int oldID){
+
+    ID+=oldID;
+}
+
+///for testing 
+
+void Client::populateRanks(){
+
+
+    string nonPhys1 = to_string(rand()%5+1);
+
+
+    string nonPhys2 = to_string(rand()%5+1);
+    string nonPhys3 = to_string(rand()%5+1);
+    string nonPhys4 = to_string(rand()%5+1);
+    string nonPhys5 = to_string(rand()%5+1);
+    string nonPhys6 = to_string(rand()%5+1);
+    string nonPhys7 = to_string(rand()%5+1);
+    string nonPhys8 = to_string(rand()%5+1);
+    string nonPhys9 = to_string(rand()%5+1);
+    string nonPhys10 = to_string(rand()%5+1);
+    string nonPhys11 = to_string(rand()%5+1);
+    string nonPhys12 = to_string(rand()%5+1);
+
+
+    Animal *dog = new Mammal("Dog","Dog");
+    dog->setNonPhysicalAttributes(nonPhys1,nonPhys2,nonPhys3,nonPhys4,nonPhys5,nonPhys5,nonPhys7,nonPhys8,nonPhys9,nonPhys10,nonPhys11,nonPhys12);
+
+    Animal *cat = new Mammal("Cat","Cat");
+    Animal *goldfish = new Fish("Goldfish","Goldfish");
+    Animal *betta = new Fish("Betta","Betta");
+    Animal *salamander = new Amphibian("Salamander","Salamander");
+    Animal *snake = new Reptile("Snake","Snake");
+    Animal *lizard = new Reptile("Lizard","Lizard");
+    Animal *frog = new Amphibian("Frog","Frog");
+    Animal *parrot = new Bird("Parrot","Parrot");
+    Animal *finch = new Bird("Finch","Finch");
+
+
+
 }

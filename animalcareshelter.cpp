@@ -1,5 +1,6 @@
 #include <iostream>
 #include "animalcareshelter.h"
+//#include "QDebug"
 using namespace std;
 
 AnimalCareShelter::AnimalCareShelter(){
@@ -81,12 +82,37 @@ void AnimalCareShelter::makeNewAnimal(vector<string> newAnimal){
      currentAnimalBeingAdded->setNonPhysicalAttributes(activeness,playfulness,individualism,affectionism,intelligence,displicine,
                                                        assertiveness,spaciousness,energy,dirunal,habitat,appetite);
 
-     currentAnimalBeingAdded->incramentID();
+     currentAnimalBeingAdded->incramentID(this->getPreviousIDForAnimal());
+     cout << "ID FOR ANIMAL IS: " << currentAnimalBeingAdded->getAnimalID() << endl;
 
-     currentAnimalBeingAdded->setNewAnimal(true);
+
+    // currentAnimalBeingAdded->setNewAnimal(true);
+
+     if (currentAnimalBeingAdded->getNewAnimal() == false){
+         currentAnimalBeingAdded->setNewAnimal(true);
+     }
 
      animals.add(&currentAnimalBeingAdded);
+}
 
+int  AnimalCareShelter::previousIDForAnimal=0;
+int  AnimalCareShelter::previousIDForClient=0;
 
+int AnimalCareShelter::getPreviousIDForAnimal(){
+    return previousIDForAnimal;
+
+}
+
+int AnimalCareShelter::getPreviousIDClient(){
+    return previousIDForClient;
+}
+
+void AnimalCareShelter::setPreviousIDForAnimal(int newID){
+    previousIDForAnimal = newID;
+
+}
+
+void AnimalCareShelter::setPreviousIDClient(int newID){
+    previousIDForClient = newID;
 
 }

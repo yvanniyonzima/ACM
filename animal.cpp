@@ -10,6 +10,7 @@ Animal::Animal(string animalName,string animalSpecies){
     species = animalSpecies;
     edited = false;
     isNewAnimal = false;
+    ID1= 1;
 }
 
 Animal::~Animal(){}
@@ -68,27 +69,26 @@ string Animal::getSpaciousness(){return spaciousness;}
 string Animal::getHabitatPreference(){return habitatPref;}
 
 
-int Animal::getAnimalID(){return ID;}
+int Animal::getAnimalID(){return ID1;}
 
 void Animal::setAnimalId(int id){
-  ID = id;
+  ID1 = id;
 }
 
 bool Animal::operator==(Animal* animal){
-  if(this->ID == animal->getAnimalID()){
+  if(this->ID1 == animal->getAnimalID()){
     return true;
   }
   return false;
 }
 bool Animal::getEdited(){return edited;}
 bool Animal::getNewAnimal(){return isNewAnimal;}
-void Animal::incramentID(){ID++;}
+void Animal::incramentID(int previousID){ID1+=previousID;}
 void Animal::setEdited(bool edit){edited = edit;}
 void Animal::setID(int id){
-    ID = id;
+    ID1 = id;
 }
 
-int Animal::ID=0;
 
 /*Helper getter functions*/
 
@@ -129,9 +129,7 @@ implementeing them will result in an "undefiend reference to fucntion "error whe
 void Animal::setPhysCharacteristics(string height,string weight){}
 //void Animal::setMammalPhysBuild(string build){}
 //void Animal::setBirdWingSpan(string wingSpan){}
-
  getters overwritten for inheritance purposes
-
 */
 
 string Animal::getMammalHairLength(){return "N/A";}

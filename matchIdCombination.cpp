@@ -39,7 +39,7 @@ void MatchIdCombination::combo(const T& c, int k)
 {
     //cout<<"Inside combo"<<endl;
     int n = c.size();
-    int combo = (1 << k) - 1;       // k bit sets
+    int combo = (1 << k) - 1;       // k bit setsv 
     while (combo < 1<<n) {
 
         addToTempVector(c, combo);

@@ -4,8 +4,8 @@
 
 using namespace std;
 
-vector<vector<Match>> MatchCombinations::computeRank(vector<vector<Match>> matchRanks, int reduction){
-    vector<vector<Match>> finalVect;
+vector<vector<Match> > MatchCombinations::computeRank(vector<vector<Match> > matchRanks, int reduction){
+    vector<vector<Match> > finalVect;
     int passLevel; //declared passlevel
     int currentSetLevel; //level for each vector of matches
     for(unsigned int i = 0; i < matchRanks.size(); i++){
@@ -32,7 +32,7 @@ vector<vector<Match>> MatchCombinations::computeRank(vector<vector<Match>> match
 }
 
 
-vector<Match> MatchCombinations:: computeOptimalSet(vector<vector<Match>> finalVect){
+vector<Match> MatchCombinations:: computeOptimalSet(vector<vector<Match> > finalVect){
     float setLevel = 0;
     float setAvgLevel;
     vector<Match> optimalSet;
@@ -61,8 +61,8 @@ vector<Match> MatchCombinations:: computeOptimalSet(vector<vector<Match>> finalV
 
 }
 
-vector<vector<Match>> MatchCombinations:: MakeMatchCombinations(vector<vector<string>> MatchIDcombinations, vector<vector<Match>> oneToOneMatches){
-    vector<vector<Match>> allMatchesComb;
+vector<vector<Match> > MatchCombinations:: MakeMatchCombinations(vector<vector<string> > MatchIDcombinations, vector<vector<Match> > oneToOneMatches){
+    vector<vector<Match> > allMatchesComb;
     vector<Match> dummyVec;
     for(unsigned int i = 0; i < MatchIDcombinations.size(); i++){
 

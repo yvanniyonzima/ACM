@@ -11,9 +11,9 @@ class MatchCombinations
 {
 
 public:
-    vector<vector<Match>> MakeMatchCombinations(vector<vector<string>>, vector<vector<Match>>);
-    vector<vector<Match>> computeRank(vector<vector<Match>>, int);
-    vector<Match> computeOptimalSet(vector<vector<Match>>);
+    vector<vector<Match> > MakeMatchCombinations(vector<vector<string> >, vector<vector<Match> >);
+    vector<vector<Match> > computeRank(vector<vector<Match> >, int);
+    vector<Match> computeOptimalSet(vector<vector<Match> >);
 
 
 
