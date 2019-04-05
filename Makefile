@@ -65,7 +65,7 @@ SOURCES       = main.cpp \
 		match.cpp \
 		matchcombinations.cpp \
 		compatibility.cpp \
-		matchidcombination.cpp moc_mainwindow.cpp
+		matchIdCombination.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		animal.o \
 		animalcareshelter.o \
@@ -81,7 +81,7 @@ OBJECTS       = main.o \
 		match.o \
 		matchcombinations.o \
 		compatibility.o \
-		matchidcombination.o \
+		matchIdCombination.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -189,7 +189,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		match.h \
 		matchcombinations.h \
 		compatibility.h \
-		matchidcombination.h main.cpp \
+		matchIdCombination.h main.cpp \
 		animal.cpp \
 		animalcareshelter.cpp \
 		bird.cpp \
@@ -204,7 +204,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		match.cpp \
 		matchcombinations.cpp \
 		compatibility.cpp \
-		matchidcombination.cpp
+		matchIdCombination.cpp
 QMAKE_TARGET  = COMP3004
 DESTDIR       = 
 TARGET        = COMP3004
@@ -420,8 +420,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h linkedlist.h animal.h animalcareshelter.h bird.h mammal.h animalheaders.h server.h client.h reptile.h fish.h amphibian.h storagecenter.h match.h match.h matchcombinations.h compatibility.h matchidcombination.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp animal.cpp animalcareshelter.cpp bird.cpp mammal.cpp server.cpp client.cpp reptile.cpp fish.cpp amphibian.cpp mainwindow.cpp storagecenter.cpp match.cpp matchcombinations.cpp compatibility.cpp matchidcombination.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h linkedlist.h animal.h animalcareshelter.h bird.h mammal.h animalheaders.h server.h client.h reptile.h fish.h amphibian.h storagecenter.h match.h match.h matchcombinations.h compatibility.h matchIdCombination.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp animal.cpp animalcareshelter.cpp bird.cpp mammal.cpp server.cpp client.cpp reptile.cpp fish.cpp amphibian.cpp mainwindow.cpp storagecenter.cpp match.cpp matchcombinations.cpp compatibility.cpp matchIdCombination.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -634,18 +634,8 @@ compatibility.o: compatibility.cpp compatibility.h \
 		linkedlist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o compatibility.o compatibility.cpp
 
-matchidcombination.o: matchidcombination.cpp matchcombinations.h \
-		match.h \
-		animalheaders.h \
-		mammal.h \
-		animal.h \
-		bird.h \
-		reptile.h \
-		fish.h \
-		amphibian.h \
-		client.h \
-		linkedlist.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o matchidcombination.o matchidcombination.cpp
+matchIdCombination.o: matchIdCombination.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o matchIdCombination.o matchIdCombination.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

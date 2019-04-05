@@ -42,7 +42,7 @@ SOURCES += \
     match.cpp \
     matchcombinations.cpp \
     compatibility.cpp \
-    matchidcombination.cpp
+    matchIdCombination.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -62,7 +62,7 @@ HEADERS += \
     match.h \
     matchcombinations.h \
     compatibility.h \
-    matchidcombination.h
+    matchIdCombination.h
 
 FORMS += \
         mainwindow.ui
