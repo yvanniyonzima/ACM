@@ -187,6 +187,21 @@ void Client::print(){
     cout<<"\tPlayfullness: "<<playfulness<<"\tEnergetic: "<<energetic<<endl;
     cout<<"\tSpaciousness: "<<spaciousness<<"\tAppetite: "<<appetite<<"\n"<<endl;
 
+
+    cout<<"RANKS OF ANIMALS, PHYSICAL AND NON PHYSICAL PREFERENCES"<<endl;
+    cout<<"\t==========================================================================="<<endl;
+
+    for(int i=0;i<ranks.size();i++){
+        cout<<"\tAnimal: "<<ranks.get(i)->getSpecies()<<endl;
+
+        cout<<"\tClient Physical Preferences"<<endl;
+        cout<<"\t-----------------------------"<<endl;
+        ranks.get(i)->printPhys(); 
+        cout<<endl;
+            
+    }
+    
+
 }
 
 
@@ -204,36 +219,164 @@ void Client::incramentID(int oldID){
 
 void Client::populateRanks(){
 
+    vector<string> animals;
+    animals.push_back("Dog");
+    animals.push_back("Cat");
+    animals.push_back("Parrot");
+    animals.push_back("Finch");
+    animals.push_back("Salamander");
+    animals.push_back("Frog");
+    animals.push_back("Snake");
+    animals.push_back("Lizard");
+    animals.push_back("Betta");
+    animals.push_back("Goldfish");
 
-    string nonPhys1 = to_string(rand()%5+1);
+    //physical attribute vectors
+    vector<string> furLength;//same as for beakLenght, bodyLength, finnSize, wingSpan 
+    furLength.push_back("Short");
+    furLength.push_back("Medium");
+    furLength.push_back("Long");
 
+    vector<string> furColour;
+    furColour.push_back("Dark Brown");
+    furColour.push_back("Light Brown");
+    furColour.push_back("Blonde");
+    furColour.push_back("White");
+    furColour.push_back("Polka Dot");
+    
+    vector<string> bodyPattern;
+    bodyPattern.push_back("Dotted");
+    bodyPattern.push_back("Stripped");
+  
+    vector<string> build;
+    build.push_back("Thin");
+    build.push_back("Average");
+    build.push_back("Bulky");
+    
+    vector<string> beakColour;
+    beakColour.push_back("Red");
+    beakColour.push_back("Orange");
+    beakColour.push_back("Yellow");
+    beakColour.push_back("Black");
+    beakColour.push_back("Blue");
+    beakColour.push_back("Mixed");
+    
+    vector<string> scaleType;
+    scaleType.push_back("Smooth");
+    scaleType.push_back("Jagged");
 
-    string nonPhys2 = to_string(rand()%5+1);
-    string nonPhys3 = to_string(rand()%5+1);
-    string nonPhys4 = to_string(rand()%5+1);
-    string nonPhys5 = to_string(rand()%5+1);
-    string nonPhys6 = to_string(rand()%5+1);
-    string nonPhys7 = to_string(rand()%5+1);
-    string nonPhys8 = to_string(rand()%5+1);
-    string nonPhys9 = to_string(rand()%5+1);
-    string nonPhys10 = to_string(rand()%5+1);
-    string nonPhys11 = to_string(rand()%5+1);
-    string nonPhys12 = to_string(rand()%5+1);
+    //ranks
+    vector<int> rank;
+    rank.push_back(1);
+    rank.push_back(2);
+    rank.push_back(3);
+    rank.push_back(4);
+    rank.push_back(5);
+    rank.push_back(6);
+    rank.push_back(7);
+    rank.push_back(8);
+    rank.push_back(9);
+    rank.push_back(10);
+   
+    //make the animals and add them ot the ranks linkedlist
 
+    //cout<<"start populationg ranks"<<endl;
+    
+    Animal *currentAnimal;
+    for(int i=0;i<10;i++){
 
-    Animal *dog = new Mammal("Dog","Dog");
-    dog->setNonPhysicalAttributes(nonPhys1,nonPhys2,nonPhys3,nonPhys4,nonPhys5,nonPhys5,nonPhys7,nonPhys8,nonPhys9,nonPhys10,nonPhys11,nonPhys12);
+        /*string nonPhys1 = to_string(rand()%5+1);
+        string nonPhys2 = to_string(rand()%5+1);
+        string nonPhys3 = to_string(rand()%5+1);
+        string nonPhys4 = to_string(rand()%5+1);
+        string nonPhys5 = to_string(rand()%5+1);
+        string nonPhys6 = to_string(rand()%5+1);
+        string nonPhys7 = to_string(rand()%5+1);
+        string nonPhys8 = to_string(rand()%5+1);
+        string nonPhys9 = to_string(rand()%5+1);
+        string nonPhys10 = to_string(rand()%5+1);
+        string nonPhys11 = to_string(rand()%5+1);
+        string nonPhys12 = to_string(rand()%5+1);*/
 
-    Animal *cat = new Mammal("Cat","Cat");
-    Animal *goldfish = new Fish("Goldfish","Goldfish");
-    Animal *betta = new Fish("Betta","Betta");
-    Animal *salamander = new Amphibian("Salamander","Salamander");
-    Animal *snake = new Reptile("Snake","Snake");
-    Animal *lizard = new Reptile("Lizard","Lizard");
-    Animal *frog = new Amphibian("Frog","Frog");
-    Animal *parrot = new Bird("Parrot","Parrot");
-    Animal *finch = new Bird("Finch","Finch");
+        string physOne, physTwo, physThree;
 
+        if(animals[i] == "Dog" || animals[i] == "Cat"){
+
+            //cout<<"making cat or dog"<<endl;
+
+            if(animals[i] == "Dog"){currentAnimal = new Mammal("Dog","Dog");}
+            if(animals[i] == "Cat"){currentAnimal = new Mammal("Cat","Cat");}
+
+            //cout<<"making physical attribute 1"<<endl;
+
+            physOne = furLength[rand()%2];
+
+            //cout<<"making physical attribute 2"<<endl;
+            physTwo = furColour[rand()%2];
+            //cout<<"making physical attribute 3"<<endl;
+            physThree = build[rand()%2];
+
+            //cout<<"setting physical attributes"<<endl;
+            currentAnimal->setPhysCharacteristics(physThree,physOne,physTwo);//build HL HC
+
+                    
+
+        }
+        else if(animals[i] == "Parrot" || animals[i] == "Finch"){
+
+            if(animals[i] == "Parrot"){currentAnimal = new Bird("Parrot","Parrot");}
+            if(animals[i] == "Finch"){currentAnimal = new Bird("Finch","Finch");}
+
+            physOne = furLength[rand()%3];
+            physTwo = furLength[rand()%3];
+            physThree = beakColour[rand()%6];
+            currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//birdWingSpan, string birdBeakLength, string birdBeakColour
+            
+        }
+        else if(animals[i] == "Salamander" || animals[i] == "Frog"){
+
+            if(animals[i] == "Salamander"){currentAnimal = new Amphibian("Salamander","Salamander");}
+            if(animals[i] == "Frog"){currentAnimal = new Amphibian("Frog","Frog");}
+
+            physOne = bodyPattern[rand()%2];
+            physTwo = furLength[rand()%3];
+            physThree = build[rand()%3];
+            currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//string amphibianBodyPattern,string amphibianBodyLength, string amphibianBuild
+            
+        }
+        else if(animals[i] == "Snake" || animals[i] == "Lizard"){
+
+            if(animals[i] == "Snake"){currentAnimal = new Reptile("Snake","Snake");}
+            if(animals[i] == "Lizard"){currentAnimal = new Reptile("Lizard","Lizard");}
+
+            physOne = furLength[rand()%3];
+            physTwo = bodyPattern[rand()%2];
+            physThree = scaleType[rand()%2];
+            currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//string reptileLength,string reptilePattern, string reptileScaleType
+            
+        }
+        else{//it's betta or goldfish
+
+            if(animals[i] == "Betta"){currentAnimal = new Fish("Betta","Betta");}
+            if(animals[i] == "Goldfish"){currentAnimal = new Fish("Goldfish","Goldfish");}
+
+            physOne = bodyPattern[rand()%2];
+            physTwo = furLength[rand()%1];
+            physThree = furLength[rand()%3];
+            currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//string fishBodyPattern,string fishBodyLength, string fishFinnsSize
+            
+        }
+        //currentAnimal->setNonPhysicalAttributes(nonPhys1,nonPhys2,nonPhys3,nonPhys4,nonPhys5,nonPhys6,nonPhys7,nonPhys8,nonPhys9,nonPhys10,nonPhys11,nonPhys12);
+
+        //cout<<"Seg fault here"<<endl;
+        int rankIndex = rand()%rank.size();
+        ranks.addRank(rank[rankIndex],&currentAnimal);
+
+        rank.erase(rank.begin() + (rankIndex - 1));
+
+    }
+
+    
 
 
 }

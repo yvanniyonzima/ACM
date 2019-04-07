@@ -36,3 +36,18 @@ string Bird::getBeakColour(){
 string Bird::getBeakLength(){
   return beakLength;
 }
+
+
+void Bird::printPhys(){
+
+  /*
+  
+  string wingSpan;
+    string beakLength;
+    string beakColour;
+  */
+
+  cout<<"\t\tWing Span: "<<wingSpan<<endl;
+  cout<<"\t\tBeak Length: "<<beakLength<<endl;
+  cout<<"\t\tBeak Colour: "<<beakColour<<endl;
+}

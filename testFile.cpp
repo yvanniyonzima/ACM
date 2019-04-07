@@ -24,6 +24,8 @@ int main(){
     //cout<<"Testing progress of the "<<shelterName<<" system"<<endl;
     //cout<<"========================================================================\n"<<endl;
 
+    //cout<<"Making the animals to test the macthing algorithm..."<<endl;
+
     Animal *timmy = new Mammal("Timmy","Dog");
     timmy->setBasicInfo("10","Male","Grey","40","12","BullDog");
     timmy->setPhysCharacteristics("Bulky", "Long", "Blonde");
@@ -41,17 +43,17 @@ int main(){
 
     Animal *ruth = new Mammal("Ruth","Cat");
     ruth->setBasicInfo("10","Female","Grey","20","12","PersianCat");
-    timmy->setPhysCharacteristics("Bulky", "Long", "Dark Brown");//build, hairlength, haircolour
-    timmy->setNonPhysicalAttributes("3","4", "5", "1", "2", "4", "2", "1", "3", "5", "1", "4");
+    ruth->setPhysCharacteristics("Bulky", "Long", "Dark Brown");//build, hairlength, haircolour
+    ruth->setNonPhysicalAttributes("3","4", "5", "1", "2", "4", "2", "1", "3", "5", "1", "4");
 
     Animal *serge = new Bird("Serge","Parrot");
     serge->setBasicInfo("10","Male","Grey","10","2","GreyParot");
     serge->setPhysCharacteristics("Short","Medium","Red"); //
-    timmy->setNonPhysicalAttributes("1","4", "3", "2", "5", "2", "5", "2", "4", "1", "3", "5");
+    serge->setNonPhysicalAttributes("1","4", "3", "2", "5", "2", "5", "2", "4", "1", "3", "5");
 
     Animal *tarek = new Reptile("Tarek","Lizard");
     tarek->setBasicInfo("10","Male","Grey","10","2","Red Lizard");
-    timmy->setNonPhysicalAttributes("2","2", "4", "2", "1", "3", "4", "5", "1", "2", "3", "5");
+    tarek->setNonPhysicalAttributes("2","2", "4", "2", "1", "3", "4", "5", "1", "2", "3", "5");
     tarek->setPhysCharacteristics("Short","Dotted","Jagged");//body length, body pattern , scale type
 
 
@@ -65,61 +67,133 @@ int main(){
     galina->setNonPhysicalAttributes("5","3", "4", "2", "4", "1", "2", "5", "2", "3", "3", "3");
     galina->setPhysCharacteristics("Dotted","Long","Average"); //string amphibianBodyPattern,string amphibianBodyLength, string amphibianBuild
 
-    cuacs.animals.add(&timmy);
-    cuacs.animals.add(&billy);
-    cuacs.animals.add(&jacob);
-    cuacs.animals.add(&ruth);
-    cuacs.animals.add(&serge);
-    cuacs.animals.add(&tarek);
-    cuacs.animals.add(&sheral);
-    cuacs.animals.add(&galina);
+    //cout<<"\nDone Making the animals to test the macthing algorithm..."<<endl;
+
+    //cout<<"Adding all aniamls to the linked list...\n"<<endl;
+    cuacs.animals.addAnimal(&timmy);
+    cuacs.animals.addAnimal(&billy);
+    cuacs.animals.addAnimal(&jacob);
+    cuacs.animals.addAnimal(&ruth);
+    cuacs.animals.addAnimal(&serge);
+    cuacs.animals.addAnimal(&tarek);
+    cuacs.animals.addAnimal(&sheral);
+    cuacs.animals.addAnimal(&galina);
+    //cout<<"\nDone adding all aniamls to the linked list...\n"<<endl;
 
     
+  //cout<<"Making the client to test the macthing algorithm..."<<endl;
 
     Client *james = new Client("James", "Issa", "19", "txisa@gmail.com", "6132768445", "Male");
     james->setClientId(1);
     james->setCharacterTraits("3", "4", "1", "5");
     james->setNonPhysPreferences("1", "2", "3", "4", "5", "3", "2", "1");
 
-    Client *bob = new Client("Bob", "Jones", "19", "txisa@gmail.com", "6132768445", "Male");
-    james->setClientId(2);
-    james->setCharacterTraits("5", "1", "2", "3");
-    james->setNonPhysPreferences("5", "3", "4", "1", "2", "3", "5", "1");
+    cout<<"populating the ranks for james..."<<endl;
+    james->populateRanks();
+    cout<<"done populating the ranks for james..."<<endl;
 
-    Client *william = new Client("William", "Jones", "19", "txisa@gmail.com", "6132768445", "Male");
-    james->setClientId(3);
-    james->setCharacterTraits("1", "5", "3", "4");
-    james->setNonPhysPreferences("5", "1", "3", "2", "1", "4", "5", "2");
+    Client *bob = new Client("Bob", "Jones", "19", "bob@gmail.com", "6132768445", "Male");
+    bob->setClientId(2);
+    bob->setCharacterTraits("5", "1", "2", "3");
+    bob->setNonPhysPreferences("5", "3", "4", "1", "2", "3", "5", "1");
+    bob->populateRanks();
 
-    Client *gary = new Client("Gary", "Jones", "19", "txisa@gmail.com", "6132768445", "Male");
-    james->setClientId(4);
-    james->setCharacterTraits("2", "1", "3", "5");
-    james->setNonPhysPreferences("4", "5", "1", "2", "3", "4", "5", "2");
+    Client *william = new Client("William", "Jones", "19", "william@gmail.com", "6132768445", "Male");
+    william->setClientId(3);
+    william->setCharacterTraits("1", "5", "3", "4");
+    william->setNonPhysPreferences("5", "1", "3", "2", "1", "4", "5", "2");
+    william->populateRanks();
 
-    Client *rome = new Client("Rome", "Jones", "19", "txisa@gmail.com", "6132768445", "Male");
-    james->setClientId(5);
-    james->setCharacterTraits("2", "2", "3", "4");
-    james->setNonPhysPreferences("2", "5", "5", "2", "3", "1", "4", "1");
+    Client *gary = new Client("Gary", "Jones", "19", "gary@gmail.com", "6132768445", "Male");
+    gary->setClientId(4);
+    gary->setCharacterTraits("2", "1", "3", "5");
+    gary->setNonPhysPreferences("4", "5", "1", "2", "3", "4", "5", "2");
+    gary->populateRanks();
 
-    Client *lola = new Client("Lola", "Jones", "19", "txisa@gmail.com", "6132768445", "Male");
-    james->setClientId(6);
-    james->setCharacterTraits("1", "5", "5", "4");
-    james->setNonPhysPreferences("4", "4", "3", "1", "3", "4", "4", "1");
+    Client *rome = new Client("Rome", "Jones", "19", "rome@gmail.com", "6132768445", "Male");
+    rome->setClientId(5);
+    rome->setCharacterTraits("2", "2", "3", "4");
+    rome->setNonPhysPreferences("2", "5", "5", "2", "3", "1", "4", "1");
+    rome->populateRanks();
 
-    Client *gordy = new Client("Gordy", "Jones", "19", "txisa@gmail.com", "6132768445", "Male");
-    james->setClientId(7);
-    james->setCharacterTraits("3", "3", "1", "2");
-    james->setNonPhysPreferences("3", "1", "4", "5", "3", "2", "1", "5");
+    Client *lola = new Client("Lola", "Jones", "19", "lola@gmail.com", "6132768445", "Male");
+    lola->setClientId(6);
+    lola->setCharacterTraits("1", "5", "5", "4");
+    lola->setNonPhysPreferences("4", "4", "3", "1", "3", "4", "4", "1");
+    lola->populateRanks();
 
-    cuacs.clients.add(&james);
-    cuacs.clients.add(&bob);
-    cuacs.clients.add(&william);
-    cuacs.clients.add(&gary);
-    cuacs.clients.add(&rome);
-    cuacs.clients.add(&gordy);
-    cuacs.clients.add(&lola);
+    Client *gordy = new Client("Gordy", "Jones", "19", "gordy@gmail.com", "6132768445", "Male");
+    gordy->setClientId(7);
+    gordy->setCharacterTraits("3", "3", "1", "2");
+    gordy->setNonPhysPreferences("3", "1", "4", "5", "3", "2", "1", "5");
+    gordy->populateRanks();
 
-  Compatibility matchtestclass;
+    cuacs.clients.addClient(&james);
+    cuacs.clients.addClient(&bob);
+    cuacs.clients.addClient(&william);
+    cuacs.clients.addClient(&gary);
+    cuacs.clients.addClient(&rome);
+    cuacs.clients.addClient(&gordy);
+    cuacs.clients.addClient(&lola);
+
+  Compatibility matchTestClass;
+
+  //cout<<"Size of the animal list: "<<cuacs.animals.size()<<endl;
+
+  /*cout<<"Animal at 1"<<endl;
+  cuacs.animals.get(1)->print();*/
+
+
+
+  float test;
+
+  /*
+  for (int i=0;i<cuacs.animals.size();i++){
+    //cout<<"dealing with animal "<<i<<endl;
+    for (int j=0;j<cuacs.clients.size();j++){
+      //cout<<"dealing with client "<<j<<endl;
+      test = matchTestClass.computeNonPhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
+      cout<<"non physical comp for animal  "<<i<<" and client "<<j<<" = "<<test<<endl;
+    }
+  }
+
+
+
+cout<<endl;
+  for (int i=0;i<cuacs.animals.size();i++){
+    //cout<<"dealing with animal "<<i<<endl;
+    for (int j=0;j<cuacs.clients.size();j++){
+      //cout<<"dealing with client "<<j<<endl;
+      test = matchTestClass.computePhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
+      
+    }
+  }*/
+
+  vector<vector<Match> > oneToOne = matchTestClass.computeAllMatchCompatibility(cuacs.animals,cuacs.clients);
+
+
+  //cuacs.clients.print();
+
+  //cuacs.animals.print();
+
+  cuacs.clients.dealocate = true;
+  cuacs.animals.dealocate = true;
+
+
+
+  
+
+  //vector<vector<Match> > compatibleMacthes = matchTestClass.computeAllMatchCompatibility(cuacs.animals,cuacs.clients);
+
+
+
+  //cout<<"PRINTING ALL CLIENTS\n"<<endl;
+
+  //cuacs.clients.print();
+
+  
+
+
 
   
 

@@ -48,3 +48,10 @@ void Amphibian::print(){
 
   cout<<"\n";
 }
+
+void Amphibian::printPhys(){
+
+  cout<<"\t\tBody Length: "<<bodyLength<<endl;
+  cout<<"\t\tScale Pattern: "<<bodyPattern<<endl;
+  cout<<"\t\tBuild: "<<build<<endl;
+}

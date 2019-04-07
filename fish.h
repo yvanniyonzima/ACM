@@ -22,6 +22,8 @@ class Fish : public Animal{
         virtual string getLength();
         virtual string getBodyPattern();
 
+        virtual void printPhys();
+
     protected:
         /* Attributes used for setPhysCharacteristics Fxn */
         string finnsSize;

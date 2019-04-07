@@ -177,3 +177,5 @@ void Animal::print(){
   cout<<"\n";
 
 }
+
+void Animal::printPhys(){}

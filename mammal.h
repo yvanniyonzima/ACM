@@ -24,6 +24,8 @@ public:
   virtual string getMammalHairColour();
   virtual string getBuild();
 
+  virtual void printPhys();
+
 
 protected:
   /* Attributes used for setPhysCharacteristics Fxn */

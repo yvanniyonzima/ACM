@@ -48,3 +48,19 @@ void Reptile::print(){
 
   cout<<"\n";
 }
+
+
+void Reptile::printPhys(){
+
+  /*
+    string bodyLength;
+
+    string bodyPattern;
+
+    string scaleType
+  */
+
+  cout<<"\t\tBody Lenght: "<<bodyLength<<endl;
+  cout<<"\t\tBody Pattern: "<<bodyPattern<<endl;
+  cout<<"\t\tScale Type: "<<scaleType<<endl;
+}

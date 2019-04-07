@@ -48,3 +48,17 @@ void Fish::print(){
 
   cout<<"\n";
 }
+
+void Fish::printPhys(){
+
+  /*
+  
+  string finnsSize;
+        string bodyLength;
+        string bodyPattern;
+  */
+
+  cout<<"\t\tFinnSize: "<<finnsSize<<endl;
+  cout<<"\t\tBody Length: "<<bodyLength<<endl;
+  cout<<"\t\tBody Pattern: "<<bodyPattern<<endl;
+}

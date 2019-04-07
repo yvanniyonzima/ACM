@@ -55,6 +55,10 @@ class LinkedList{
 
         void addRank(int,T**);          //adds the specified element at the specified position
 
+        void addClient(T**);
+
+        void addAnimal(T**);
+
         void clear();               //removes all the elements from this LinkedList
 
 
@@ -92,6 +96,11 @@ class LinkedList{
         void printRanksTest();
         void printClient();
 
+        T* getByRank(int);
+
+
+        bool dealocate;
+
 
 
 
@@ -109,6 +118,8 @@ template<class T>
 LinkedList<T>::LinkedList(){
     head = NULL;
     this->numElements = 0;
+
+    dealocate = false;
 }
 
 /*linked list destructore
@@ -118,22 +129,24 @@ template<class T>
 LinkedList<T>::~LinkedList(){
     //cout<<"Linked list called "<<this->name<<endl;
 
+    if(dealocate){
+        Node<T>* curr = head;
+        Node<T>* prev = NULL;
 
-    Node<T>* curr = head;
-    Node<T>* prev = NULL;
-
-    while(curr != NULL){
+        while(curr != NULL){
 
         //cout<<"deleting this current animal"<<endl;
         //cout<<"============================"<<endl;
 
         //curr->data->print();
 
-        prev = curr->next;
-        delete curr->data;
-        delete curr;
-        curr = prev;
+            prev = curr->next;
+            delete curr->data;
+            delete curr;
+            curr = prev;
+        }
     }
+    
 }
 
 
@@ -349,6 +362,26 @@ T* LinkedList<T>::get(int index){
 
 }
 
+//gets by the ranks
+
+template<class T>
+T* LinkedList<T>::getByRank(int animalRank){
+
+    //boundsCheck(index);
+    T* data = NULL;
+    Node<T>* curr = head;
+
+    while(curr != NULL){
+        if(curr->rank == animalRank){
+            data = curr->data;
+            break;
+        }
+        curr = curr->next;
+    }
+    return data;
+}
+
+
 
 /*takes an animal and returns it's rank based on the animals species*/
 
@@ -380,6 +413,8 @@ LinkedList<T>& LinkedList<T>::operator=(vector<T*> copyFrom){
     return *this;
 
 }
+
+//////////////////////////////////////////////////////////FOR TESTING//////////////////////////////////////////////////////////////
 /*for testing purposes*/
 /*prnts out the data in this list*/
 template<class T>
@@ -431,6 +466,74 @@ void LinkedList<T>::printRanksTest(){
         cout<<"Rank: "<<currNode->index+1<<"\t Data: "<<currNode->data<<endl;
         currNode = currNode->next;
     }
+}
+
+
+template<class T>
+void LinkedList<T>::addAnimal(T** newData){
+
+    //cout<<"Beginning to add animal"<<endl;
+
+
+    Node<T>* newNode = new Node<T>;
+    newNode->data = *newData;
+    newNode->index = numElements++;
+
+    if(head == NULL){
+        //cout<<"inside add if statement"<<endl;
+        newNode->next = NULL;
+        newNode->prev = NULL;
+        head = newNode;
+
+
+    }else{
+        //cout<<"inside add else statement"<<endl;
+        Node<T>* currNode = head;
+        while (currNode->next != NULL){
+            currNode = currNode->next;
+        }
+        newNode->prev = currNode;
+        currNode->next = newNode;
+        newNode->next = NULL;
+
+
+    }
+     //cout<<"Done to add animal"<<endl;
+
+}
+
+//called to add a client
+template<class T>
+void LinkedList<T>::addClient(T** newData){
+
+    //cout<<"Beginning to add client"<<endl;
+
+
+    Node<T>* newNode = new Node<T>;
+    newNode->data = *newData;
+    newNode->index = numElements++;
+
+    if(head == NULL){
+        //cout<<"inside add if statement"<<endl;
+        newNode->next = NULL;
+        newNode->prev = NULL;
+        head = newNode;
+
+
+    }else{
+        //cout<<"inside add else statement"<<endl;
+        Node<T>* currNode = head;
+        while (currNode->next != NULL){
+            currNode = currNode->next;
+        }
+        newNode->prev = currNode;
+        currNode->next = newNode;
+        newNode->next = NULL;
+
+
+    }
+     //cout<<"Done to add client"<<endl;
+
 }
 
 

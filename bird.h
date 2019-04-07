@@ -22,6 +22,8 @@ class Bird : public Animal{
     virtual string getBeakLength();
     virtual string getBeakColour();
 
+    virtual void printPhys();
+
   protected:
     string wingSpan;
     string beakLength;

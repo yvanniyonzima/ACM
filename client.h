@@ -76,6 +76,7 @@ class Client{
 
         int getClientId();
         int getAnimalRank(string);
+        
 
         /*getters for the non physiscal attributes that apply to clients*/
 
@@ -105,6 +106,8 @@ class Client{
 
         //Helper Getter functions
         bool getNewClient();
+         //for testing purposes
+        void populateRanks();
 
     private:
         string firstName;
@@ -146,8 +149,7 @@ class Client{
 
 
 
-        //for testing purposes
-        void populateRanks();
+       
 
 };
 

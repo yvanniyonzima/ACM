@@ -22,6 +22,8 @@ class Reptile : public Animal{
     virtual string getBodyPattern();
     virtual string getScaleType();
 
+    virtual void printPhys();
+
 
 
   protected:

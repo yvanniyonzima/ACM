@@ -140,6 +140,8 @@ class Animal{
     /*for testing purposes*/
     virtual void print();
 
+    virtual void printPhys();
+
 
 
   protected:

@@ -42,3 +42,17 @@ void Mammal::print(){
 
   cout<<"\n";
 }
+
+void Mammal::printPhys(){
+
+  /*
+  
+  string furLength;
+  string furColour;
+  string build;
+  */
+
+  cout<<"\t\tFur Lenght: "<<furLength<<endl;
+  cout<<"\t\tFur Colour: "<<furColour<<endl;
+  cout<<"\t\tBuild: "<<build<<endl;
+}

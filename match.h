@@ -1,3 +1,5 @@
+#ifndef MATCH_H
+#define MATCH_H
 #include <iostream>
 #include <string>
 #include "animalheaders.h"
@@ -66,3 +68,5 @@ class Match{
 
 
 };
+
+#endif

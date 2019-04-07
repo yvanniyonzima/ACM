@@ -23,6 +23,8 @@ class Amphibian : public Animal{
         virtual string getBodyPattern();
         virtual string getBuild();
 
+        virtual void printPhys();
+
 
     protected:
     /* Attributes used for setPhysCharacteristics Fxn */
