@@ -98,6 +98,8 @@ class LinkedList{
 
         T* getByRank(int);
 
+      
+
 
         bool dealocate;
 
@@ -146,8 +148,23 @@ LinkedList<T>::~LinkedList(){
             curr = prev;
         }
     }
-    
+
 }
+
+template<class T>
+void LinkedList<T>::clear(){
+  Node<T>* curr = head;
+  Node<T>* prev = NULL;
+
+  while(curr != NULL){
+
+      prev = curr->next;
+      delete curr->data;
+      delete curr;
+      curr = prev;
+  }
+}
+
 
 
 /*returns the amout of elements in this current linked list*/

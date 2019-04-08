@@ -1,9 +1,9 @@
 OPT = -Wall
 
-testFile: testFile.o animal.o animalCareShelter.o bird.o mammal.o reptile.o amphibian.o fish.o client.o match.o matchIdCombination.o matchcombinations.o compatibility.o storagecenter.o
-	g++ $(OPT) -o testFile testFile.o animal.o animalCareShelter.o bird.o mammal.o reptile.o amphibian.o fish.o client.o match.o matchIdCombination.o matchcombinations.o compatibility.o storagecenter.o
+testFile: testFile.o animal.o animalCareShelter.o bird.o mammal.o reptile.o amphibian.o fish.o client.o match.o matchIdCombination.o matchcombinations.o compatibility.o storagecenter.o acm.o
+	g++ $(OPT) -o testFile testFile.o animal.o animalCareShelter.o bird.o mammal.o reptile.o amphibian.o fish.o client.o match.o matchIdCombination.o matchcombinations.o compatibility.o storagecenter.o acm.o
 
-testFile.o: testFile.o animal.h animalCareShelter.h bird.h mammal.h reptile.h amphibian.h fish.h client.h matchcombinations.h matchIdCombination.h compatibility.h storagecenter.h
+testFile.o: testFile.o animal.h animalCareShelter.h bird.h mammal.h reptile.h amphibian.h fish.h client.h matchcombinations.h matchIdCombination.h compatibility.h storagecenter.h acm.h
 	g++ $(OPT) -c testFile.cpp
 
 animalCareShelter.o: animalCareShelter.h animalCareShelter.cpp
@@ -30,17 +30,20 @@ reptile.o: reptile.h reptile.cpp
 fish.o: fish.h fish.cpp
 	g++ $(OPT) -c fish.cpp
 
-match.o: match.h animal.h client.h match.cpp 
+match.o: match.h animal.h client.h match.cpp
 	g++ $(OPT) -c match.cpp
 
 matchIdCombination.o: matchIdCombination.h matchIdCombination.cpp
 	g++ $(OPT) -c matchIdCombination.cpp
 
 matchcombinations.o: matchcombinations.h matchcombinations.cpp
-	g++ $(OPT) -c matchcombinations.cpp	
+	g++ $(OPT) -c matchcombinations.cpp
 
 compatibility.o: compatibility.h compatibility.cpp
 	g++ $(OPT) -c compatibility.cpp
+
+acm.o: acm.h acm.cpp
+	g++ $(OPT) -c acm.cpp
 
 storagecenter.o: storagecenter.h storagecenter.cpp
 	g++ $(OPT) -c storagecenter.cpp

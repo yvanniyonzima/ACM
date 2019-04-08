@@ -154,107 +154,114 @@ int main(){
 
 
 
-  float test;
+//   float test;
+//
+//   /*
+//   for (int i=0;i<cuacs.animals.size();i++){
+//     //cout<<"dealing with animal "<<i<<endl;
+//     for (int j=0;j<cuacs.clients.size();j++){
+//       //cout<<"dealing with client "<<j<<endl;
+//       test = matchTestClass.computeNonPhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
+//       cout<<"non physical comp for animal  "<<i<<" and client "<<j<<" = "<<test<<endl;
+//     }
+//   }
+//
+//
+//
+// cout<<endl;
+//   for (int i=0;i<cuacs.animals.size();i++){
+//     //cout<<"dealing with animal "<<i<<endl;
+//     for (int j=0;j<cuacs.clients.size();j++){
+//       //cout<<"dealing with client "<<j<<endl;
+//       test = matchTestClass.computePhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
+//
+//     }
+//   }*/
+//
+//   cout<<"making one to one matches..."<<endl;
+//
+//   vector<vector<Match> > oneToOne = matchTestClass.computeAllMatchCompatibility(cuacs.animals,cuacs.clients);
+//
+//   cout<<"done making one to one matches......"<<endl;
+//
+//   cout<<"makiing id combinbations......."<<endl;
+//
+//   vector<string> passedAniamlIDs;
+//   vector<string> passedClientIDs;
+//
+//   for (int i= 0;i<cuacs.animals.size();i++){
+//     passedAniamlIDs.push_back(to_string(i));
+//   }
+//
+//   // for (int i= 0;i<passedAniamlIDs.size();i++){
+//   //   cout<<"animal id: "<<passedAniamlIDs[i]<<endl;
+//   // }
+//
+//
+//
+//   for (int i= 0;i<cuacs.clients.size();i++){
+//     passedClientIDs.push_back(to_string(i));
+//   }
+//
+//
+//   int numAnimals = cuacs.animals.size();
+//   int numClients = cuacs.clients.size();
+//   // for (int i= 0;i<passedClientIDs.size();i++){
+//   //   cout<<"client id: "<<passedClientIDs[i]<<endl;
+//   // }
+//
+//   vector<vector<string> > idComb = idCombinationsTest.getAllIdCombinations(passedAniamlIDs,passedClientIDs,numAnimals,numClients);
+//
+//   cout<<"printng the id combinations"<<endl;
+//
+//   //idCombinationsTest.printComboVector(idComb);
+//
+//   // cout<<"PRINTING THE MATCHES"<<endl;
+//   // cout<<"============================"<<endl;
+//   //
+//   // for(int i=0;i<oneToOne.size();i++){
+//   //   for(int j=0;j<oneToOne[i].size();j++){
+//   //     oneToOne[i][j].print();
+//   //   }
+//   // }
+//
+//   vector<vector<Match> > macthCombinations = matchCombTest.makeMatchCombinations(idComb,oneToOne);
+//
+//   cout<<"number of id combinations = "<<idComb.size()<<endl;
+//   cout<<"number of match combinations = "<<macthCombinations.size()<<endl;
+//
+//   //cout<<"First 3 Passed Vector of Matches"<<endl;
+//
+//   // for(int i=0;i<3;i++){
+//   //   for(int j=0;j<macthCombinations[i].size();j++){
+//   //     macthCombinations[i][j].print();
+//   //   }
+//   // }
+//
+//
+//
+//   vector<vector<Match> > rankSets = matchCombTest.computeRank(macthCombinations,0);
+//
+//   cout<<"match sets that passed the rank test = "<<rankSets.size()<<endl;
+//
+//   vector<Match> optimalSet = matchCombTest.computeOptimalSet(rankSets);
+//
+//   cout<<"optimal set of matches..."<<endl;
+//    for(int i = 0;i<optimalSet.size();i++){
+//      optimalSet[i].print();
+//    }
+//
+//
+//   //cuacs.clients.print();
+//
+//   //cuacs.animals.print();
 
-  /*
-  for (int i=0;i<cuacs.animals.size();i++){
-    //cout<<"dealing with animal "<<i<<endl;
-    for (int j=0;j<cuacs.clients.size();j++){
-      //cout<<"dealing with client "<<j<<endl;
-      test = matchTestClass.computeNonPhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
-      cout<<"non physical comp for animal  "<<i<<" and client "<<j<<" = "<<test<<endl;
-    }
+  cuacs.runACM();
+
+  for(int i = 0;i<cuacs.animalClientMatches.size();i++){
+
+    cuacs.animalClientMatches.get(i)->print();
   }
-
-
-
-cout<<endl;
-  for (int i=0;i<cuacs.animals.size();i++){
-    //cout<<"dealing with animal "<<i<<endl;
-    for (int j=0;j<cuacs.clients.size();j++){
-      //cout<<"dealing with client "<<j<<endl;
-      test = matchTestClass.computePhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
-
-    }
-  }*/
-
-  cout<<"making one to one matches..."<<endl;
-
-  vector<vector<Match> > oneToOne = matchTestClass.computeAllMatchCompatibility(cuacs.animals,cuacs.clients);
-
-  cout<<"done making one to one matches......"<<endl;
-
-  cout<<"makiing id combinbations......."<<endl;
-
-  vector<string> passedAniamlIDs;
-  vector<string> passedClientIDs;
-
-  for (int i= 0;i<cuacs.animals.size();i++){
-    passedAniamlIDs.push_back(to_string(i));
-  }
-
-  // for (int i= 0;i<passedAniamlIDs.size();i++){
-  //   cout<<"animal id: "<<passedAniamlIDs[i]<<endl;
-  // }
-
-
-
-  for (int i= 0;i<cuacs.clients.size();i++){
-    passedClientIDs.push_back(to_string(i));
-  }
-
-
-  int numAnimals = cuacs.animals.size();
-  int numClients = cuacs.clients.size();
-  // for (int i= 0;i<passedClientIDs.size();i++){
-  //   cout<<"client id: "<<passedClientIDs[i]<<endl;
-  // }
-
-  vector<vector<string> > idComb = idCombinationsTest.getAllIdCombinations(passedAniamlIDs,passedClientIDs,numAnimals,numClients);
-
-  cout<<"printng the id combinations"<<endl;
-
-  //idCombinationsTest.printComboVector(idComb);
-
-  // cout<<"PRINTING THE MATCHES"<<endl;
-  // cout<<"============================"<<endl;
-  //
-  // for(int i=0;i<oneToOne.size();i++){
-  //   for(int j=0;j<oneToOne[i].size();j++){
-  //     oneToOne[i][j].print();
-  //   }
-  // }
-
-  vector<vector<Match> > macthCombinations = matchCombTest.makeMatchCombinations(idComb,oneToOne);
-
-  cout<<"number of id combinations = "<<idComb.size()<<endl;
-  cout<<"number of match combinations = "<<macthCombinations.size()<<endl;
-
-  //cout<<"First 3 Passed Vector of Matches"<<endl;
-
-  // for(int i=0;i<3;i++){
-  //   for(int j=0;j<macthCombinations[i].size();j++){
-  //     macthCombinations[i][j].print();
-  //   }
-  // }
-
-
-
-  vector<vector<Match> > rankSets = matchCombTest.computeRank(macthCombinations,0);
-
-  cout<<"match sets that passed the rank test = "<<rankSets.size()<<endl;
-
-  vector<Match> optimalSet = matchCombTest.computeOptimalSet(rankSets);
-
-  cout<<"optimal set of matches..."<<endl;
-   for(int i = 0;i<optimalSet.size();i++){
-     optimalSet[i].print();
-   }
-
-
-  //cuacs.clients.print();
-
-  //cuacs.animals.print();
 
   cuacs.clients.dealocate = true;
   cuacs.animals.dealocate = true;

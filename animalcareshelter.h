@@ -3,6 +3,7 @@
 
 using namespace std;
 #include "storagecenter.h"
+#include "acm.h"
 
 class AnimalCareShelter : public StorageCenter{
 
@@ -11,6 +12,7 @@ class AnimalCareShelter : public StorageCenter{
         ~AnimalCareShelter();
         LinkedList<Animal> animals;
         LinkedList<Client> clients;
+        LinkedList<Match> animalClientMatches;
 
 
         void makeNewAnimal(vector<string>);
@@ -18,12 +20,17 @@ class AnimalCareShelter : public StorageCenter{
         int getPreviousIDClient();
         void setPreviousIDForAnimal(int newID);
         void setPreviousIDClient(int newID);
+        void runACM();
 
 
 
     private:
         static int previousIDForAnimal;
         static int previousIDForClient;
+        ACM acm;
+
+
+
 
 
 };

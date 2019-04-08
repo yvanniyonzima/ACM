@@ -116,3 +116,17 @@ void AnimalCareShelter::setPreviousIDClient(int newID){
     previousIDForClient = newID;
 
 }
+
+void AnimalCareShelter::runACM(){
+
+  if(animalClientMatches.size() > 0){animalClientMatches.clear();}
+
+  int numAnimals = animals.size();
+  int numClients = clients.size();
+  vector<Match> optimalSet = acm.launchACM(animals,clients,numAnimals,numClients);
+
+  for(int i=0;i<optimalSet.size();i++){
+    Match* matchPtr = &optimalSet[i];
+    animalClientMatches.add(&matchPtr);
+  }
+}
