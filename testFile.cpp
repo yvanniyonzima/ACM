@@ -9,6 +9,9 @@ using namespace std;
 #include "client.h"
 #include "match.h"
 #include "compatibility.h"
+#include "matchcombinations.h"
+#include "matchIdCombination.h"
+#include <cstdlib>
 
 //#include "LinkedList.h"
 
@@ -19,8 +22,8 @@ int main(){
    AnimalCareShelter cuacs;
     cuacs.animals.name = "Animals";
     string shelterName = cuacs.getName();
-  
-  
+
+
     //cout<<"Testing progress of the "<<shelterName<<" system"<<endl;
     //cout<<"========================================================================\n"<<endl;
 
@@ -80,7 +83,7 @@ int main(){
     cuacs.animals.addAnimal(&galina);
     //cout<<"\nDone adding all aniamls to the linked list...\n"<<endl;
 
-    
+
   //cout<<"Making the client to test the macthing algorithm..."<<endl;
 
     Client *james = new Client("James", "Issa", "19", "txisa@gmail.com", "6132768445", "Male");
@@ -136,7 +139,13 @@ int main(){
     cuacs.clients.addClient(&gordy);
     cuacs.clients.addClient(&lola);
 
+    cout<<"DONE ADDING CLIENTS TO THE LINKED LIST OF CLIENTS IN CUACCS"<<endl;
+
   Compatibility matchTestClass;
+  MatchCombinations matchCombTest;
+  MatchIdCombination idCombinationsTest;
+
+
 
   //cout<<"Size of the animal list: "<<cuacs.animals.size()<<endl;
 
@@ -165,11 +174,71 @@ cout<<endl;
     for (int j=0;j<cuacs.clients.size();j++){
       //cout<<"dealing with client "<<j<<endl;
       test = matchTestClass.computePhysicalCompatibility(cuacs.animals.get(i),cuacs.clients.get(j));
-      
+
     }
   }*/
 
+  cout<<"making one to one matches..."<<endl;
+
   vector<vector<Match> > oneToOne = matchTestClass.computeAllMatchCompatibility(cuacs.animals,cuacs.clients);
+
+  cout<<"done making one to one matches......"<<endl;
+
+  cout<<"makiing id combinbations......."<<endl;
+
+  vector<string> passedAniamlIDs;
+  vector<string> passedClientIDs;
+
+  for (int i= 0;i<cuacs.animals.size();i++){
+    passedAniamlIDs.push_back(to_string(i));
+  }
+
+  // for (int i= 0;i<passedAniamlIDs.size();i++){
+  //   cout<<"animal id: "<<passedAniamlIDs[i]<<endl;
+  // }
+
+
+
+  for (int i= 0;i<cuacs.clients.size();i++){
+    passedClientIDs.push_back(to_string(i));
+  }
+
+
+  int numAnimals = cuacs.animals.size();
+  int numClients = cuacs.clients.size();
+  // for (int i= 0;i<passedClientIDs.size();i++){
+  //   cout<<"client id: "<<passedClientIDs[i]<<endl;
+  // }
+
+  vector<vector<string> > idComb = idCombinationsTest.getAllIdCombinations(passedAniamlIDs,passedClientIDs,numAnimals,numClients);
+
+  cout<<"printng the id combinations"<<endl;
+
+  //idCombinationsTest.printComboVector(idComb);
+
+  // cout<<"PRINTING THE MATCHES"<<endl;
+  // cout<<"============================"<<endl;
+  //
+  // for(int i=0;i<oneToOne.size();i++){
+  //   for(int j=0;j<oneToOne[i].size();j++){
+  //     oneToOne[i][j].print();
+  //   }
+  // }
+
+  vector<vector<Match> > macthCombinations = matchCombTest.makeMatchCombinations(idComb,oneToOne);
+
+  cout<<"number of id combinations = "<<idComb.size()<<endl;
+  cout<<"number of match combinations = "<<macthCombinations.size()<<endl;
+
+  cout<<"First 3 Passed Vector of Matches"<<endl;
+
+  for(int i=0;i<3;i++){
+    for(int j=0;j<macthCombinations[i].size();j++){
+      macthCombinations[i][j].print();
+    }
+  }
+
+
 
 
   //cuacs.clients.print();
@@ -181,7 +250,7 @@ cout<<endl;
 
 
 
-  
+
 
   //vector<vector<Match> > compatibleMacthes = matchTestClass.computeAllMatchCompatibility(cuacs.animals,cuacs.clients);
 
@@ -191,29 +260,29 @@ cout<<endl;
 
   //cuacs.clients.print();
 
-  
 
 
 
-  
 
-    
+
+
+
 
 
     ////////////////////////////////////////DUMMY ANIMALS FOR THE CLIENT RANKS///////////////////////////////////////////////////////////////
 
 
 
-   
 
-    
- 
 
-   
 
-  
 
- 
+
+
+
+
+
+
 
 
 

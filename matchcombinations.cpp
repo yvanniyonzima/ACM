@@ -61,9 +61,10 @@ vector<Match> MatchCombinations:: computeOptimalSet(vector<vector<Match> > final
 
 }
 
-vector<vector<Match> > MatchCombinations:: MakeMatchCombinations(vector<vector<string> > MatchIDcombinations, vector<vector<Match> > oneToOneMatches){
+vector<vector<Match> > MatchCombinations:: makeMatchCombinations(vector<vector<string> > MatchIDcombinations, vector<vector<Match> > oneToOneMatches){
     vector<vector<Match> > allMatchesComb;
     vector<Match> dummyVec;
+    //int vecPass = 0;
     for(unsigned int i = 0; i < MatchIDcombinations.size(); i++){
 
         for(unsigned int y = 0; y < MatchIDcombinations[i].size(); y++){
@@ -88,15 +89,13 @@ vector<vector<Match> > MatchCombinations:: MakeMatchCombinations(vector<vector<s
 
            }
            if(dummyVec.size() == MatchIDcombinations[i].size()){
+              //cout<<"vector passed : "<<vecPass<<endl;
+              //vecPass++;
               allMatchesComb.push_back(dummyVec);
 
-        }
+            }
           dummyVec.clear();
 
         }
     return allMatchesComb;
 }
-
-
-
-

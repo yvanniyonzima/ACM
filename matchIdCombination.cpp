@@ -39,7 +39,7 @@ void MatchIdCombination::combo(const T& c, int k)
 {
     //cout<<"Inside combo"<<endl;
     int n = c.size();
-    int combo = (1 << k) - 1;       // k bit setsv 
+    int combo = (1 << k) - 1;       // k bit setsv
     while (combo < 1<<n) {
 
         addToTempVector(c, combo);
@@ -214,12 +214,14 @@ void MatchIdCombination::convertIdsToInt(){
 }
 
 //ACTUAL FUNTION CALLED TO GET ALL THE IDS OF UNSIGNED INTS
-vector<vector<unsigned int> > MatchIdCombination::getAllIdCombinations(vector<string>& passedAniamlIDs, vector<string>& passedClientIDs,int& totalAnimals,int& totalClients){
+vector<vector<string> > MatchIdCombination::getAllIdCombinations(vector<string>& passedAniamlIDs, vector<string>& passedClientIDs,int& totalAnimals,int& totalClients){
 
     //cout<<"Inside getAllIdCombinations"<<endl;
 
     //cout<<"number of animals: "<<totalAnimals<<endl;
     //cout<<"number of clients: "<<totalClients<<endl;
+
+    vector<vector<string> > idCombinations;
     if(totalAnimals <=0 || totalClients <= 0){
         cerr << "Number of clients or animals = 0"<<endl;
         exit(1);
@@ -256,10 +258,10 @@ vector<vector<unsigned int> > MatchIdCombination::getAllIdCombinations(vector<st
 
 
     /*make all the id combinations and add them to allCombinationStrings */
-    makeAllIdCombinations(animalIds,clientIds);
+    idCombinations = makeAllIdCombinations(animalIds,clientIds);
 
     /*convert the string vector of ids from allCombinationStrings to integers*/
-    convertIdsToInt();
+    //convertIdsToInt();
 
     return idCombinations;
 }

@@ -51,3 +51,38 @@ void Match::setMatchTotalAndAverage(){
 }
 
 void Match::setMatchAverage(float average){}
+
+
+
+void Match::print(){
+
+  if(client != NULL){
+
+    cout<<"=================================================================================================================================="<<endl;
+
+    cout<<"MATCH WITH ID: "<<this->matchId<<endl;
+    cout<<"THE CLIENT"<<endl;
+    cout<<"----------"<<endl;
+    cout<<endl;
+    this->client->print();
+
+    cout<<"THE ANIMAL"<<endl;
+    cout<<"----------"<<endl;
+    this->animal->print();
+    this->animal->printPhys();
+    cout<<endl;
+
+    cout<<"\t\tMATCH SUMMARY"<<endl;
+    cout<<"\t\t================="<<endl;
+    cout<<"\t\t\tmatchNonPhysicalTotal: "<<this->matchNonPhysicalTotal<<"\tmatchNonPhysicalAverage: "<<this->matchNonPhysicalAverage<<endl;
+    cout<<"\t\t\tmatchPhysicalTotal: "<<this->matchPhysicalTotal<<"\tmatchPhysicalAverage: "<<this->matchPhysicalAverage<<endl;
+    cout<<"\t\t\tmatchTotal: "<<this->matchTotal<<"\tmatchAverage: "<<this->matchAverage<<endl;
+
+
+  }
+
+
+
+
+
+}

@@ -37,6 +37,8 @@ class Match{
         void setMatchAverage(float);
 
 
+        void print();
+
 
     private:
         Client* client;

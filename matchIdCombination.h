@@ -47,7 +47,7 @@ class MatchIdCombination{
 
         void convertIdsToInt();
 
-        vector<vector<unsigned int> > getAllIdCombinations(vector<string>&,vector<string>&,int&,int&);
+        vector<vector<string> > getAllIdCombinations(vector<string>&,vector<string>&,int&,int&);
 
 
          //////////////////////////////////////*for testing purpuses*//////////////////////////////////////

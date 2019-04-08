@@ -196,11 +196,11 @@ void Client::print(){
 
         cout<<"\tClient Physical Preferences"<<endl;
         cout<<"\t-----------------------------"<<endl;
-        ranks.get(i)->printPhys(); 
+        ranks.get(i)->printPhys();
         cout<<endl;
-            
+
     }
-    
+
 
 }
 
@@ -215,9 +215,11 @@ void Client::incramentID(int oldID){
     ID+=oldID;
 }
 
-///for testing 
+///for testing
 
 void Client::populateRanks(){
+
+    //cout<<"\tbeginnig populate ranks "<<endl;
 
     vector<string> animals;
     animals.push_back("Dog");
@@ -231,11 +233,17 @@ void Client::populateRanks(){
     animals.push_back("Betta");
     animals.push_back("Goldfish");
 
+
+
     //physical attribute vectors
-    vector<string> furLength;//same as for beakLenght, bodyLength, finnSize, wingSpan 
+
+
+    vector<string> furLength;//same as for beakLenght, bodyLength, finnSize, wingSpan
     furLength.push_back("Short");
     furLength.push_back("Medium");
     furLength.push_back("Long");
+
+
 
     vector<string> furColour;
     furColour.push_back("Dark Brown");
@@ -243,16 +251,16 @@ void Client::populateRanks(){
     furColour.push_back("Blonde");
     furColour.push_back("White");
     furColour.push_back("Polka Dot");
-    
+
     vector<string> bodyPattern;
     bodyPattern.push_back("Dotted");
     bodyPattern.push_back("Stripped");
-  
+
     vector<string> build;
     build.push_back("Thin");
     build.push_back("Average");
     build.push_back("Bulky");
-    
+
     vector<string> beakColour;
     beakColour.push_back("Red");
     beakColour.push_back("Orange");
@@ -260,7 +268,7 @@ void Client::populateRanks(){
     beakColour.push_back("Black");
     beakColour.push_back("Blue");
     beakColour.push_back("Mixed");
-    
+
     vector<string> scaleType;
     scaleType.push_back("Smooth");
     scaleType.push_back("Jagged");
@@ -277,12 +285,14 @@ void Client::populateRanks(){
     rank.push_back(8);
     rank.push_back(9);
     rank.push_back(10);
-   
+
     //make the animals and add them ot the ranks linkedlist
 
     //cout<<"start populationg ranks"<<endl;
-    
+
+    //cout<<"\tin ranks at current animal"<<endl;
     Animal *currentAnimal;
+  //  cout<<"\tdone declaring the animal"<<endl;
     for(int i=0;i<10;i++){
 
         /*string nonPhys1 = to_string(rand()%5+1);
@@ -302,12 +312,12 @@ void Client::populateRanks(){
 
         if(animals[i] == "Dog" || animals[i] == "Cat"){
 
-            //cout<<"making cat or dog"<<endl;
+            //cout<<"\tmaking cat or dog"<<endl;
 
             if(animals[i] == "Dog"){currentAnimal = new Mammal("Dog","Dog");}
             if(animals[i] == "Cat"){currentAnimal = new Mammal("Cat","Cat");}
 
-            //cout<<"making physical attribute 1"<<endl;
+            //cout<<"\tmaking physical attribute 1"<<endl;
 
             physOne = furLength[rand()%2];
 
@@ -316,10 +326,14 @@ void Client::populateRanks(){
             //cout<<"making physical attribute 3"<<endl;
             physThree = build[rand()%2];
 
-            //cout<<"setting physical attributes"<<endl;
+            cout<<"\tsetting physical attributes"<<endl;
             currentAnimal->setPhysCharacteristics(physThree,physOne,physTwo);//build HL HC
+             // cout<<"\tPrinting physical characteristic"<<endl;
+             // cout<<"\t--------------------------------"<<endl;
+             // currentAnimal->printPhys();
+             // cout<<endl;
 
-                    
+
 
         }
         else if(animals[i] == "Parrot" || animals[i] == "Finch"){
@@ -330,8 +344,15 @@ void Client::populateRanks(){
             physOne = furLength[rand()%3];
             physTwo = furLength[rand()%3];
             physThree = beakColour[rand()%6];
+            //cout<<"\tsetting physical attributes"<<endl;
             currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//birdWingSpan, string birdBeakLength, string birdBeakColour
-            
+
+
+             // cout<<"\tPrinting physical characteristic"<<endl;
+             // cout<<"\t--------------------------------"<<endl;
+             // currentAnimal->printPhys();
+             // cout<<endl;
+
         }
         else if(animals[i] == "Salamander" || animals[i] == "Frog"){
 
@@ -341,8 +362,13 @@ void Client::populateRanks(){
             physOne = bodyPattern[rand()%2];
             physTwo = furLength[rand()%3];
             physThree = build[rand()%3];
+            //cout<<"\tsetting physical attributes"<<endl;
             currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//string amphibianBodyPattern,string amphibianBodyLength, string amphibianBuild
-            
+
+            // cout<<"\tPrinting physical characteristic"<<endl;
+            // cout<<"\t--------------------------------"<<endl;
+            // currentAnimal->printPhys();
+            // cout<<endl;
         }
         else if(animals[i] == "Snake" || animals[i] == "Lizard"){
 
@@ -352,8 +378,13 @@ void Client::populateRanks(){
             physOne = furLength[rand()%3];
             physTwo = bodyPattern[rand()%2];
             physThree = scaleType[rand()%2];
+            //cout<<"\tsetting physical attributes"<<endl;
             currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//string reptileLength,string reptilePattern, string reptileScaleType
-            
+
+            // cout<<"\tPrinting physical characteristic"<<endl;
+            // cout<<"\t--------------------------------"<<endl;
+            // currentAnimal->printPhys();
+            //cout<<endl;
         }
         else{//it's betta or goldfish
 
@@ -363,20 +394,43 @@ void Client::populateRanks(){
             physOne = bodyPattern[rand()%2];
             physTwo = furLength[rand()%1];
             physThree = furLength[rand()%3];
+            //cout<<"\tsetting physical attributes"<<endl;
             currentAnimal->setPhysCharacteristics(physOne,physTwo,physThree);//string fishBodyPattern,string fishBodyLength, string fishFinnsSize
-            
+
+            // cout<<"\tPrinting physical characteristic"<<endl;
+            // cout<<"\t--------------------------------"<<endl;
+            // currentAnimal->printPhys();
+            //cout<<endl;
         }
         //currentAnimal->setNonPhysicalAttributes(nonPhys1,nonPhys2,nonPhys3,nonPhys4,nonPhys5,nonPhys6,nonPhys7,nonPhys8,nonPhys9,nonPhys10,nonPhys11,nonPhys12);
 
         //cout<<"Seg fault here"<<endl;
         int rankIndex = rand()%rank.size();
+
+        // cout<<"\tRandIndex is : "<<rank[rankIndex]<<endl;
+        // cout<<"\tadding the animal and randindex to the linkled list"<<endl;
         ranks.addRank(rank[rankIndex],&currentAnimal);
 
-        rank.erase(rank.begin() + (rankIndex - 1));
+        //cout<<"\tthere should be no "<<rank[rankIndex]<<" in the vector of rank"<<endl;
+
+
+
+        if(rank.size()>0){
+            rank.erase(rank.begin() + (rankIndex));
+            // //cout<<"\tremaining ranks: ";
+            // for(int i=0;i<rank.size();i++){
+            //   cout<<rank[i]<<" ";
+            // }
+            //   cout<<endl;
+        }
+
+
+
+
 
     }
 
-    
+
 
 
 }
