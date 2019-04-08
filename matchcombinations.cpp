@@ -9,7 +9,7 @@ vector<vector<Match> > MatchCombinations::computeRank(vector<vector<Match> > mat
     int passLevel; //declared passlevel
     int currentSetLevel; //level for each vector of matches
     for(unsigned int i = 0; i < matchRanks.size(); i++){
-        passLevel = matchRanks[i].size() / 2 - reduction;
+        passLevel = (matchRanks[i].size()/ 2 + 1 )- reduction;
         currentSetLevel = 0;
         for(unsigned int y = 0; y < matchRanks[i].size(); y++){
             Match temp = matchRanks[i][y];

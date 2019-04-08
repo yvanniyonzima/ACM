@@ -230,15 +230,26 @@ cout<<endl;
   cout<<"number of id combinations = "<<idComb.size()<<endl;
   cout<<"number of match combinations = "<<macthCombinations.size()<<endl;
 
-  cout<<"First 3 Passed Vector of Matches"<<endl;
+  //cout<<"First 3 Passed Vector of Matches"<<endl;
 
-  for(int i=0;i<3;i++){
-    for(int j=0;j<macthCombinations[i].size();j++){
-      macthCombinations[i][j].print();
-    }
-  }
+  // for(int i=0;i<3;i++){
+  //   for(int j=0;j<macthCombinations[i].size();j++){
+  //     macthCombinations[i][j].print();
+  //   }
+  // }
 
 
+
+  vector<vector<Match> > rankSets = matchCombTest.computeRank(macthCombinations,0);
+
+  cout<<"match sets that passed the rank test = "<<rankSets.size()<<endl;
+
+  vector<Match> optimalSet = matchCombTest.computeOptimalSet(rankSets);
+
+  cout<<"optimal set of matches..."<<endl;
+   for(int i = 0;i<optimalSet.size();i++){
+     optimalSet[i].print();
+   }
 
 
   //cuacs.clients.print();
